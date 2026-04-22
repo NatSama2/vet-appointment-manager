@@ -55,9 +55,9 @@ Este proyecto demuestra el desarrollo de una arquitectura cliente-servidor utili
 
 ### 📋 Listado de Citas
 
-![Listado](./screenshots./table.png)
+![Listado](./screenshots/table.png)
 
-> ⚠️ Crea una carpeta `/screenshots` y agrega tus imágenes aquí para que se vean en GitHub.
+> ⚠️ Crea un.a carpeta `/screenshots` y agrega tus imágenes aquí para que se vean en GitHub.
 
 ---
 
