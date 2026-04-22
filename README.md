@@ -31,11 +31,13 @@ Este proyecto demuestra el desarrollo de una arquitectura cliente-servidor utili
 ## 🧱 Tecnologías
 
 ### Frontend
+
 - Vue 3
 - Quasar Framework
 - Axios
 
 ### Backend
+
 - Node.js
 - Express.js
 
@@ -44,13 +46,16 @@ Este proyecto demuestra el desarrollo de una arquitectura cliente-servidor utili
 ## 🖼️ Screenshots
 
 ### 📊 Dashboard
+
 ![Dashboard](./screenshots/dashboard.png)
 
 ### ➕ Crear Cita
+
 ![Crear Cita](./screenshots/form.png)
 
 ### 📋 Listado de Citas
-![Listado](./screenshots/table.png)
+
+![Listado](./screenshots./table.png)
 
 > ⚠️ Crea una carpeta `/screenshots` y agrega tus imágenes aquí para que se vean en GitHub.
 
@@ -59,6 +64,7 @@ Este proyecto demuestra el desarrollo de una arquitectura cliente-servidor utili
 ## ⚙️ Instalación
 
 ### 🔹 Backend
+
 ```bash
 cd backend
 npm install
@@ -66,6 +72,7 @@ npm run dev
 ```
 
 ### 🔹 Frontend
+
 ```bash
 cd frontend
 npm install
@@ -76,12 +83,12 @@ quasar dev
 
 ## 🔌 API Endpoints
 
-| Método | Endpoint        | Descripción              |
-|--------|----------------|--------------------------|
-| GET    | /citas         | Listar citas             |
-| POST   | /citas         | Crear cita               |
-| PUT    | /citas/:id     | Marcar como atendida     |
-| GET    | /citas?fecha=  | Filtrar por fecha        |
+| Método | Endpoint      | Descripción          |
+| ------ | ------------- | -------------------- |
+| GET    | /citas        | Listar citas         |
+| POST   | /citas        | Crear cita           |
+| PUT    | /citas/:id    | Marcar como atendida |
+| GET    | /citas?fecha= | Filtrar por fecha    |
 
 ---
 
@@ -96,8 +103,8 @@ quasar dev
 
 ## 👥 Equipo
 
-- **Giselle Cifuentes** — Frontend & Backend  
-- **Teresa Barrios** — Frontend, Backend & QA  
+- **Giselle Cifuentes** — Frontend & Backend
+- **Teresa Barrios** — Frontend, Backend & QA
 
 ---
 
