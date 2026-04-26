@@ -2,12 +2,22 @@ import {
   crearCitaDB,
   listarCitasDB,
   actualizarEstadoDB,
+  eliminarCitaDB,
 } from "../models/citas.model.js";
 
 // 🟩 Crear cita
 export const crearCita = async (req, res) => {
   try {
-    const { mascota, especie, edad, dueno, telefono, fecha, hora } = req.body;
+    const {
+      mascota,
+      especie,
+      edad,
+      dueno,
+      telefono,
+      fecha,
+      hora,
+      motivo = null, // 🆕 opcional
+    } = req.body;
 
     // 🔎 Validación básica
     if (!mascota || !dueno || !fecha || !hora) {
@@ -16,7 +26,16 @@ export const crearCita = async (req, res) => {
       });
     }
 
-    await crearCitaDB(req.body);
+    await crearCitaDB({
+      mascota,
+      especie,
+      edad,
+      dueno,
+      telefono,
+      fecha,
+      hora,
+      motivo,
+    });
 
     res.status(201).json({
       msg: "Cita creada correctamente",
@@ -62,7 +81,13 @@ export const actualizarEstado = async (req, res) => {
       });
     }
 
-    await actualizarEstadoDB(id);
+    const result = await actualizarEstadoDB(id);
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({
+        msg: "Cita no encontrada",
+      });
+    }
 
     res.json({
       msg: "Cita actualizada a atendida",
@@ -72,6 +97,37 @@ export const actualizarEstado = async (req, res) => {
 
     res.status(500).json({
       msg: "Error al actualizar cita",
+    });
+  }
+};
+
+// 🟥 Eliminar cita
+export const eliminarCita = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    if (!id) {
+      return res.status(400).json({
+        msg: "ID es requerido",
+      });
+    }
+
+    const result = await eliminarCitaDB(id);
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({
+        msg: "Cita no encontrada",
+      });
+    }
+
+    res.json({
+      msg: "Cita eliminada correctamente",
+    });
+  } catch (error) {
+    console.error(error);
+
+    res.status(500).json({
+      msg: "Error al eliminar cita",
     });
   }
 };

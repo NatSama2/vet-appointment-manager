@@ -1,7 +1,17 @@
 import { pool } from "../config/db.js";
 
+// 🟩 Crear cita
 export const crearCitaDB = async (data) => {
-  const { mascota, especie, edad, dueno, telefono, fecha, hora } = data;
+  const {
+    mascota,
+    especie,
+    edad,
+    dueno,
+    telefono,
+    fecha,
+    hora,
+    motivo = null,
+  } = data;
 
   const conn = await pool.getConnection();
 
@@ -19,9 +29,9 @@ export const crearCitaDB = async (data) => {
     );
 
     await conn.query(
-      `INSERT INTO citas (mascota_id, dueno_id, fecha, hora, estado)
-       VALUES (?, ?, ?, ?, 'pendiente')`,
-      [mascotaRes.insertId, duenoRes.insertId, fecha, hora],
+      `INSERT INTO citas (mascota_id, dueno_id, fecha, hora, estado, motivo)
+       VALUES (?, ?, ?, ?, 'pendiente', ?)`,
+      [mascotaRes.insertId, duenoRes.insertId, fecha, hora, motivo],
     );
 
     await conn.commit();
@@ -33,6 +43,7 @@ export const crearCitaDB = async (data) => {
   }
 };
 
+// 🟦 Listar citas
 export const listarCitasDB = async () => {
   const [rows] = await pool.query(`
     SELECT 
@@ -41,7 +52,8 @@ export const listarCitasDB = async () => {
       d.nombre AS dueno,
       c.fecha,
       c.hora,
-      c.estado
+      c.estado,
+      c.motivo
     FROM citas c
     JOIN mascotas m ON c.mascota_id = m.id
     JOIN duenos d ON c.dueno_id = d.id
@@ -51,6 +63,19 @@ export const listarCitasDB = async () => {
   return rows;
 };
 
+// 🟨 Actualizar estado
 export const actualizarEstadoDB = async (id) => {
-  await pool.query('UPDATE citas SET estado = "atendida" WHERE id = ?', [id]);
+  const [result] = await pool.query(
+    'UPDATE citas SET estado = "atendida" WHERE id = ?',
+    [id],
+  );
+
+  return result;
+};
+
+// 🟥 Eliminar cita
+export const eliminarCitaDB = async (id) => {
+  const [result] = await pool.query("DELETE FROM citas WHERE id = ?", [id]);
+
+  return result;
 };
