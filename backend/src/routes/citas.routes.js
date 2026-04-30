@@ -3,6 +3,7 @@ import {
   crearCita,
   listarCitas,
   actualizarEstado,
+  eliminarCita,
 } from "../controllers/citas.controller.js";
 
 const router = Router();
@@ -35,6 +36,7 @@ router.get("/", listarCitas);
  *             telefono: 123456789
  *             fecha: 2026-04-25
  *             hora: "10:00:00"
+ *             motivo: Vacunación
  *     responses:
  *       201:
  *         description: Cita creada correctamente
@@ -61,5 +63,24 @@ router.post("/", crearCita);
  *         description: ID inválido
  */
 router.put("/:id", actualizarEstado);
+
+/**
+ * @swagger
+ * /citas/{id}:
+ *   delete:
+ *     summary: Eliminar una cita
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Cita eliminada
+ *       404:
+ *         description: Cita no encontrada
+ */
+router.delete("/:id", eliminarCita);
 
 export default router;
