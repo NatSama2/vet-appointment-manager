@@ -8,13 +8,17 @@ const options = {
       version: "1.0.0",
       description: "API para gestión de citas veterinarias",
     },
+    tags: [
+      { name: "Citas", description: "Operaciones de citas" },
+      { name: "Dueños", description: "Gestión de dueños" }
+    ],
     servers: [
       {
         url: "http://localhost:3000",
       },
     ],
   },
-  apis: ["./src/routes/citas.routes.js"],
+  apis: ["./src/routes/*.js"],
 };
 
 export const swaggerSpec = swaggerJsdoc(options);

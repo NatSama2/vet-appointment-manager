@@ -12,6 +12,8 @@ const router = Router();
  * @swagger
  * /citas:
  *   get:
+ *     tags:
+ *       - Citas
  *     summary: Obtener todas las citas
  *     responses:
  *       200:
@@ -23,6 +25,8 @@ router.get("/", listarCitas);
  * @swagger
  * /citas:
  *   post:
+ *     tags:
+ *       - Citas
  *     summary: Crear una nueva cita
  *     requestBody:
  *       required: true
@@ -49,6 +53,8 @@ router.post("/", crearCita);
  * @swagger
  * /citas/{id}:
  *   put:
+ *     tags:
+ *       - Citas
  *     summary: Marcar cita como atendida
  *     parameters:
  *       - in: path
@@ -68,6 +74,8 @@ router.put("/:id", actualizarEstado);
  * @swagger
  * /citas/{id}:
  *   delete:
+ *     tags:
+ *       - Citas
  *     summary: Eliminar una cita
  *     parameters:
  *       - in: path
