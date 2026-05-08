@@ -10,7 +10,8 @@ const options = {
     },
     tags: [
       { name: "Citas", description: "Operaciones de citas" },
-      { name: "Dueños", description: "Gestión de dueños" }
+      { name: "Dueños", description: "Gestión de dueños" },
+      { name: "Mascotas", description: "Gestión de mascotas" },
     ],
     servers: [
       {
