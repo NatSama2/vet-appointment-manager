@@ -70,16 +70,4 @@
   </div>
 </template>
 
-<style scoped>
-.sidebar-container {
-  border-right: 1px solid #e5e7eb;
-  background: white;
-}
-
-.logo-icon {
-  width: 55px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-</style>
+<style scoped src="../css/sidebar.scss"></style>
