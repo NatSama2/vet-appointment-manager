@@ -21,7 +21,15 @@
 
       <!-- Menú lateral -->
       <q-list padding>
-        <q-item clickable v-ripple active class="rounded-borders bg-teal text-white q-mb-sm">
+        <!-- Dashboard -->
+        <q-item
+          clickable
+          v-ripple
+          to="/"
+          active-class="bg-teal text-white"
+          exact
+          class="rounded-borders q-mb-sm"
+        >
           <q-item-section avatar>
             <q-icon name="home" />
           </q-item-section>
@@ -29,7 +37,14 @@
           <q-item-section> Dashboard </q-item-section>
         </q-item>
 
-        <q-item clickable v-ripple class="q-mb-sm rounded-borders">
+        <!-- Citas -->
+        <q-item
+          clickable
+          v-ripple
+          to="/citas"
+          active-class="bg-teal text-white"
+          class="rounded-borders q-mb-sm"
+        >
           <q-item-section avatar>
             <q-icon name="event" />
           </q-item-section>
@@ -37,7 +52,14 @@
           <q-item-section> Citas </q-item-section>
         </q-item>
 
-        <q-item clickable v-ripple class="q-mb-sm rounded-borders">
+        <!-- Nueva Cita -->
+        <q-item
+          clickable
+          v-ripple
+          to="/nueva-cita"
+          active-class="bg-teal text-white"
+          class="rounded-borders q-mb-sm"
+        >
           <q-item-section avatar>
             <q-icon name="add_circle_outline" />
           </q-item-section>
@@ -45,7 +67,14 @@
           <q-item-section> Nueva Cita </q-item-section>
         </q-item>
 
-        <q-item clickable v-ripple class="rounded-borders">
+        <!-- Mascotas -->
+        <q-item
+          clickable
+          v-ripple
+          to="/mascotas"
+          active-class="bg-teal text-white"
+          class="rounded-borders"
+        >
           <q-item-section avatar>
             <q-icon name="pets" />
           </q-item-section>
@@ -70,16 +99,4 @@
   </div>
 </template>
 
-<style scoped>
-.sidebar-container {
-  border-right: 1px solid #e5e7eb;
-  background: white;
-}
-
-.logo-icon {
-  width: 55px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-</style>
+<style scoped src="../css/sidebar.scss"></style>
